@@ -33,8 +33,3 @@ Para desencriptar nuestro archivo el argumento es similar, solo que no escribire
 Ejemplo:
 
 <script type="text/javascript" src="https://asciinema.org/a/slMYrWpCPFR3OoBXxE0G1fxr1.js" id="asciicast-slMYrWpCPFR3OoBXxE0G1fxr1" async></script>
---------------
-
-Espero te haya gustado la entrada. Tienes un método o sugerencia? Comenta abajo!
-
-*Happy Hacking.*

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Empire F*ckery  — Pt. 02: Office Staging Methods'
+title: 'Empire F#ckery  — Pt. 02: Office Staging Methods'
 featured: true
 date: '2017-12-18 01:20:42'
 tags:

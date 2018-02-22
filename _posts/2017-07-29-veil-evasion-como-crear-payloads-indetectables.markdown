@@ -128,5 +128,3 @@ Aquí te demuestro con un ejemplo. Pasos realizados:
 5. Una vez que el AV no detecta el archivo maligno, proceder a ejecutarlo.
 6. Una vez conectado el payload a metasploit proceder a post-explotar la maquina con un bypassuac para Windows 10
 7. ejecutar getsystem en meterpreter
-
-[![veilexe](/content/images/2017/07/veilexe.png)](https://getroot.info/rec/veil.html)

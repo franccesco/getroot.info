@@ -13,15 +13,15 @@ Sin embargo si tu distribucion preferida no es Kali Linux y quisieras trabajar d
 
 Antes tenias que registrar tu version de comunidad de Metasploit y obtener una llave en tu correo que te permitia darle actualizaciones y obtener nuevos exploits, auxiliaries y payloads, entre otras cosas.
 
-![Nop, ningun lado aqui.](/content/images/2017/09/Screenshot-from-2017-09-03-09-38-18.png)
+![Nop, ningun lado aqui.](/images/screenshots/Screenshot-from-2017-09-03-09-38-18.png)
 
 Sin embargo, el formulario para pedir la llave no esta aqui.
 
-![](/content/images/2017/09/Screenshot-from-2017-09-03-09-39-06.png)
+![](/images/screenshots/Screenshot-from-2017-09-03-09-39-06.png)
 
 Tampoco aqui, y pense que ese formulario era para la llave de metasploit, pero es para descargar Metasploitable. *Derp*.
 
-![](/content/images/2017/09/Screenshot-from-2017-09-03-09-39-21.png)
+![](/images/screenshots/Screenshot-from-2017-09-03-09-39-21.png)
 
 Y la segunda imagen me redirige al Github, donde al parecer tengo que clonar el repositorio? Tambien hice eso y esa no es la solucion.
 
@@ -38,6 +38,6 @@ chmod 755 msfinstall && \
 
 Ahora ejecutamos `msfconsole` sin necesidad de activar servicios ni ejecutar `msfupdate` y ya tendremos nuestra instalacion asi de facil:
 
-![Wohoo!](/content/images/2017/09/final_step-1.png)
+![Wohoo!](/images/screenshots/final_step-1.png)
 
 *Y decir que me llevo dias averiguar esta...*

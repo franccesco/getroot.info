@@ -100,21 +100,15 @@ Nos posicionamos en el directorio `/var/www/html` y:
 
 Y listo! Ya integramos los hosts y sus banners encontrados en la base de datos. Puedes ver que **podemos filtrar por servicio, puertos, titulos, etc:**
 
-![](/content/images/2017/07/cap2.PNG)
+![](/images/screenshots/cap2.PNG)
 
 **Demostración:**
 # <script type="text/javascript" src="https://asciinema.org/a/s8GblzRGLV1bbVGpE2Dz8gztL.js" id="asciicast-s8GblzRGLV1bbVGpE2Dz8gztL" async></script>
 
-#Nota:
+# Nota:
 
 Si te encuentras con este problema:
 
-![](/content/images/2017/07/Capture-2.PNG)
+![](/images/screenshots/Capture-2.PNG)
 
 Es sencillo componerlo, simplemente reiniciamos apache2: `service apache2 restart`
-
-Y eso sería todo en la entrega de hoy, si quieres aportar algo mas puedes sentirte libre para comentar abajo!
-
-Como siempre, *Happy Hacking.*
-
-*No me hago responsable del daño que puedas causar ya que esta entrada es con fines educativos solamente.*

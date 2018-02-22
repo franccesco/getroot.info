@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Empire F*ckery  — Pt. 01: Pentesting con Powershell y evasión de IPS'
+title: 'Empire F#ckery  — Pt. 01: Pentesting con Powershell y evasión de IPS'
 date: '2017-08-05 13:28:26'
 tags:
 - powershell
@@ -11,9 +11,9 @@ tags:
 > Empire es una plataforma en Powershell de post-explotación construida con comunicaciones criptológicamente seguras y una architectura flexible
 — [PowershellEmpire.com](https://www.powershellempire.com/)
 
-Powershell es una excelente herramienta de ayuda en los sistemas windows que puede ser abusada por atacantes para cometer explotacion, post explotacion, recon e incluso BypassUAC, por ende, nace Empire.
+Powershell es una excelente herramienta de ayuda en los sistemas windows que puede ser abusada por atacantes para cometer explotacion, post explotacion, recon e incluso BypassUAC, y es así como nace Empire.
 
-![empire_logo_black4](/content/images/2017/08/empire_logo_black4.png)
+![empire_logo_black4](/images/screenshots/empire_logo_black4.png)
 
 Empire es una plataforma de post-explotación que nos asistirá a la hora de ingresar en un sistema y buscar elevar nuestra presencia ya sea en la maquina host como movimientos laterales sobre la red.
 
@@ -57,7 +57,7 @@ Ahora hay algo extremadamente importante antes de ejecutar el proceso, y es **a�
 
 Por ejemplo, Fortinet agrego en Junio 01, 2017 una firma para detectar a Empire calificandolo como un backdoor.
 
-![Intrusion Prevention: Backdoor.Empire](/content/images/2017/08/Capture.PNG)
+![Intrusion Prevention: Backdoor.Empire](/images/screenshots/Capture-ips.PNG)
 
 Si nosotros creamos un listener y nuestro agente se conecta a él, transmitirá la información en texto claro y el IPS/IDS levantará una alerta y bloqueará la conexión.
 

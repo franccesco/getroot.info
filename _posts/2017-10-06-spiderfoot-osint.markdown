@@ -11,25 +11,25 @@ tags:
 - spiderfoot
 ---
 
-![Screenshot-2017-10-6-SpiderFoot---Open-Source-Intelligence-Automation-](/content/images/2017/10/Screenshot-2017-10-6-SpiderFoot---Open-Source-Intelligence-Automation-.png)
+![Screenshot-2017-10-6-SpiderFoot---Open-Source-Intelligence-Automation-](/images/screenshots/Screenshot-2017-10-6-SpiderFoot---Open-Source-Intelligence-Automation-.png)
 
 > SpiderFoot is an open source intelligence automation tool. Its goal is to automate the process of gathering intelligence about a given target, which may be an IP address, domain name, hostname or network subnet.
 
 Spiderfoot es una herramienta de obtención de inteligencia en medios abiertos, en palabras en simple español: nos permite recavar información vital de nuestros objetivos.
 
-![Screenshot-2017-10-6-SpiderFoot-v2-11](/content/images/2017/10/Screenshot-2017-10-6-SpiderFoot-v2-11.png)
+![Screenshot-2017-10-6-SpiderFoot-v2-11](/images/screenshots/Screenshot-2017-10-6-SpiderFoot-v2-11.png)
 
 Desde direcciones IP, DNS's, Status Codes, Links Externos, hasta la tecnologia que usamos en el backend de nuestros servidores.
 
 Toda esta información nos es útil para planear un vector de ataque a nuestro objetivo, vectores de ingeniería social e incluso HUMINT (Human Intelligence) para definir las entidades humanas que trabajan en el objetivo.
 
-![Screenshot-2017-10-6-SpiderFoot-v2-11-1-](/content/images/2017/10/Screenshot-2017-10-6-SpiderFoot-v2-11-1-.png)
+![Screenshot-2017-10-6-SpiderFoot-v2-11-1-](/images/screenshots/Screenshot-2017-10-6-SpiderFoot-v2-11-1-.png)
 
 Hay tres categorias en la cual definimos las políticas o reglas a las cuales SpiderFoot se ajustará para escanear los objetivos: **By Use Case - By Required Data - By Module**
 
 ## By Use Case
 
-![Screenshot-2017-10-6-SpiderFoot-v2-11-2-](/content/images/2017/10/Screenshot-2017-10-6-SpiderFoot-v2-11-2-.png)
+![Screenshot-2017-10-6-SpiderFoot-v2-11-2-](/images/screenshots/Screenshot-2017-10-6-SpiderFoot-v2-11-2-.png)
 
 En este caso miramos 4 casos de uso:
 * **All**: Todos los modulos de SpiderFoot estaran habilitados, este caso de uso es el *mas* recursivo, pero tardara mucho en completarse. Similar al L3 en el PTES, Full Scope.
@@ -39,19 +39,19 @@ En este caso miramos 4 casos de uso:
 
 ## By Required Data
 
-![Screenshot-2017-10-6-SpiderFoot-v2-11-3-](/content/images/2017/10/Screenshot-2017-10-6-SpiderFoot-v2-11-3-.png)
+![Screenshot-2017-10-6-SpiderFoot-v2-11-3-](/images/screenshots/Screenshot-2017-10-6-SpiderFoot-v2-11-3-.png)
 
 Analiza los objetivos dependiento de la información que requieras sobre ellos, por ejemplo Defacements, Domain Names, Device Type, Co-Hosted Sites, etc.
 
 ## By Module
 
-![Screenshot-2017-10-6-SpiderFoot-v2-11-4-](/content/images/2017/10/Screenshot-2017-10-6-SpiderFoot-v2-11-4-.png)
+![Screenshot-2017-10-6-SpiderFoot-v2-11-4-](/images/screenshots/Screenshot-2017-10-6-SpiderFoot-v2-11-4-.png)
 
 En esta categoria eliges los modulos que quieres que corran en SpiderFoot, si no te gusta algun modulo o no lo necesitas por ahora o lo consideras muy intrusivo entonces aqui puedes definir cuales quieres y cuales no.
 
 ## Settings
 
-![Screenshot-2017-10-6-SpiderFoot-v2-11-5-](/content/images/2017/10/Screenshot-2017-10-6-SpiderFoot-v2-11-5-.png)
+![Screenshot-2017-10-6-SpiderFoot-v2-11-5-](/images/screenshots/Screenshot-2017-10-6-SpiderFoot-v2-11-5-.png)
 
 Es muy importante que antes de correr SpiderFoot revises la configuración para que todo vaya en orden. Por ejemplo el HTTP User-Agent header el cual se enviara a todos los dispositivos que tengan HTTP(S) activado y llaves API.
 

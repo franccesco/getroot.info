@@ -25,18 +25,18 @@ Hace poco estaba navegando internet, a mi manera y me encontre con varios servid
 Abrimos Metasploit y busco el modulo mssql_ping para ver en que ver en que puertos esta MSSQL corriendo, este modulo hace una peticion al servicio UDP en el puerto 1433 para localizar en que otros puertos (TCP) esta el servicio MSSQL.
 
 `use auxiliary/scanner/mssql/mssql_ping`
-![search mssql type:auxiliary](/content/images/2018/01/Screenshot-from-2018-01-11-23-21-48-1.png)
+![search mssql type:auxiliary](/images/screenshots/Screenshot-from-2018-01-11-23-21-48-1.png)
 
 Al correr el modulo e ingresar la direccion del servidor, me da los puertos a los cuales podemos atacar al servidor.
 
-![mssql_ping result](/content/images/2018/01/Screenshot-from-2018-01-11-23-22-39.png)
+![mssql_ping result](/images/screenshots/Screenshot-from-2018-01-11-23-22-39.png)
 
 A como podemos ver, hay dos puertos en los cuales podemos acceder y encontrar bases de datos, el puerto 1433 (MSSQLSERVER) y el puerto 49633 (CENSORED).
 
 Atacando el puerto 1433, hacemos un ataque de fuerza bruta para conocer si hay un usuario y contraseña facil de adivinar. _Conste que los ataques de fuerza bruta tiran alarmas a lo loco a los IDS/IPS y Firewalls, asi que deberias abstenerte de hacer esto en una red bien vigilada._
 
 `use auxiliary/scanner/mssql/mssql_login`
-![mssql_login options](/content/images/2018/01/Screenshot-from-2018-01-11-23-27-23.png)
+![mssql_login options](/images/screenshots/Screenshot-from-2018-01-11-23-27-23.png)
 
 Configuramos bien nuestras opciones:
 * Establecemos probar un password vacio, una lista de usuarios comunes, una lista de passwords (usualmente uso SecLists)
@@ -44,12 +44,12 @@ Configuramos bien nuestras opciones:
 * `VERBOSE false` porque no quiero ver cada intento fallido
 * `run -j` para correr el modulo en el background y que asi nos de tiempo de hacer otras cosas mientas se ejecuta.
 
-![Creds found](/content/images/2018/01/Selection_002.png)
+![Creds found](/images/screenshots/Selection_002.png)
 
 Una vez que encontramos credenciales validas, procedemos a ejecutar un commando con el modulo `mssql_exec`
 
 `use auxiliary/admin/mssql/mssql_exec`
-![Selection_003](/content/images/2018/01/Selection_003.png)
+![Selection_003](/images/screenshots/Selection_003.png)
 
 Configuramos nuestras opciones acorde a nuestros hallazgos:
 * **CMD**: whoami (para saber la cuenta en la cual corre MSSQL).
@@ -57,7 +57,7 @@ Configuramos nuestras opciones acorde a nuestros hallazgos:
 * **USERNAME**: admin
 
 ¡¿`NT Authority\System`?!
-![NT Authority\System](/content/images/2018/01/Selection_004.png)
+![NT Authority\System](/images/screenshots/Selection_004.png)
 
 Supongo que esta es una de esas dulces ocasiones donde el Administrador te deja todo el trabajo hecho para que no tengas que preocuparte por la parte dificil /s.
 
@@ -68,11 +68,11 @@ Antes de tirar de un solo un Payload, quiero saber que tipo de seguridad tiene l
 
 Vemos los procesos que se ejecutan en el sistema:
 
-![tasklist /SVC](/content/images/2018/01/Workspace-1_006.png)
+![tasklist /SVC](/images/screenshots/Workspace-1_006.png)
 
 Y observamos algo que nos interesa:
 
-![MWAGENT.EXE](/content/images/2018/01/Selection_007.png)
+![MWAGENT.EXE](/images/screenshots/Selection_007.png)
 
 Segun [File.net](https://www.file.net/process/mwagent.exe.html)
 > The genuine mwagent.exe file is a software component of eScan Antivirus Suite by MicroWorld Technologies.
@@ -101,48 +101,48 @@ Se que no es necesario usar Metasploit _y_ Empire, pero personalmente lo he enco
 
 Esta es mi sesion de escucha **General** donde tengo activa la opcion **SSL** con `CertPath` indicando el directorio `data/` en el cual se generan los certificados de Empire.
 
-![General Listener](/content/images/2018/01/Workspace-1_008.png)
+![General Listener](/images/screenshots/Workspace-1_008.png)
 
 Y aqui tengo mi sesion de meterpreter, la cual usaremos para inyectar el codigo una vez que nuestro agente se conecte.
 
-![Meterpreter Listener](/content/images/2018/01/Selection_009-1.png)
+![Meterpreter Listener](/images/screenshots/Selection_009-1.png)
 
 Una vez hecho esto, debemos usar el modulo `exploit/multi/handler` en Metasploit y establecer el payload `windows/meterpreter/reverse_https` para que escuche y establezca una sesion de meterpreter una vez que inyectemos nuestro codigo.
 
-![Selection_010-1](/content/images/2018/01/Selection_010-1.png)
+![Selection_010-1](/images/screenshots/Selection_010-1.png)
 
 Debemos procurar que el puerto de escucha `LHOST` sea el mismo que elegimos para el listener de meterpreter en Empire.
 
 ### Inyectando el primer payload
 Lo primero que haremos sera generar el payload de Empire e inyectarlo a traves de `mssql_exec`:
 
-![Payload General](/content/images/2018/01/Selection_011.png)
+![Payload General](/images/screenshots/Selection_011.png)
 
 Vamos a Metasploit y lo inyectamos con `mssql_exec`
 
-![set CMD](/content/images/2018/01/Selection_012.png)
+![set CMD](/images/screenshots/Selection_012.png)
 
 Ahora tenemos nuestro Agente en Empire
 
-![Empire Agent](/content/images/2018/01/Selection_013-1.png)
+![Empire Agent](/images/screenshots/Selection_013-1.png)
 
 Una vez que tenemos nuestro agente en Empire, interactuamos con el e inyectamos el shellcode de meterpreter
 
-![Injecting Meterpreter](/content/images/2018/01/Selection_014.png)
+![Injecting Meterpreter](/images/screenshots/Selection_014.png)
 
 Y como podran ver, ya Metasploit obtuvo un Staged Meterpreter
 
-![Staged x64 Meterpreter](/content/images/2018/01/Selection_015.png)
+![Staged x64 Meterpreter](/images/screenshots/Selection_015.png)
 
 ## Obteniendo RDP
 Para obtener una sesion RDP, primero debemos activar el RDP en el servidor con el modulo `enable_rdp` de meterpreter, por conveniencia el modulo nos permite directamente crear un usuario y contraseña para acceder y tener un escritorio virtual remoto.
 
 `use post/windows/manage/enable_rdp`
-![enable RDP](/content/images/2018/01/Selection_017.png)
+![enable RDP](/images/screenshots/Selection_017.png)
 
 Como pueden ver, RDP ya esta activado, esto es usual en Windows Server ya que es conveniente, ahora podemos entrar y tener una sesion RDP usando la herramienta `rdesktop`
 
-![Workspace-1_018](/content/images/2018/01/Workspace-1_018.png)
+![Workspace-1_018](/images/screenshots/Workspace-1_018.png)
 
 ## Ultimas palabras
 No es necesario poner Empire y Metasploit, ademas Empire tiene el modulo `powershell/management/enable_rdp` el cual activa el RDP, pero he encontrado muchas veces que las cosas se complican dependiendo el sistema operativo e incluso el lenguaje del mismo, ademas metasploit tambien tiene el modulo `exploit/multi/script/web_delivery` pero no funciona en todas las versiones de powershell y no tan bien como Empire.

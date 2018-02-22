@@ -9,7 +9,7 @@ tags:
 
 Hace poco encontré una hoja de bolsillo bastante útil a la hora de conducir tests de penetración o entrar en un Domain Controller. 
 
-![](/content/images/2017/07/PowerShell-Essentials.png)
+![](/images/screenshots/PowerShell-Essentials.png)
 
 Compilado por el instituto SANS[^n], esta hoja nos enseña:
 

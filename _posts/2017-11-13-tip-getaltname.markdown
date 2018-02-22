@@ -22,19 +22,19 @@ Esto no significa que _siempre_ encontraremos todos los subdominios ahí, _no_, 
 ## Obteniendo el SubjectAltName
 Este es un buen caso, hace poco exploraba un rango de direcciones en busca de subdominios de un servidor para encontrar un vector de ataque, encontrando un servidor (`dtic.exampleweb.com`) me di cuenta que era una dirección IP que servía varios servidores virtuales, poniendo en práctica lo aprendido, vemos el certificado SSL:
 
-![Certificado SSL emitido por LetsEncrypt](/content/images/2017/11/cap1.PNG)
+![Certificado SSL emitido por LetsEncrypt](/images/screenshots/cap1.PNG)
 
 Podemos ver que fue emitido a `dtic.exampleweb.com` por Let's Encrypt y tiene fecha de expiración al próximo año, viendo los detalles del certificado podemos ver que algo no calza:
 
-![Common Name (CN) is different than the website](/content/images/2017/11/cap2.PNG)
+![Common Name (CN) is different than the website](/images/screenshots/cap-2.PNG)
 
 Segun las medidas de seguridad de los exploradores web, si el `Common Name (CN)` del certificado no es igual al de la pagina web que visitamos, deberia tirar un error de que el sitio no es seguro, en este caso no tira ese error, sino que la página se muestra como totalmente legítima:
 
-![El certificado se muestra como válido al sitio web](/content/images/2017/11/Capture-1.PNG)
+![El certificado se muestra como válido al sitio web](/images/screenshots/Capture-11.PNG)
 
 Si el `Common Name` del certificado y la dirección del sitio web no calzan, es porque el certificado tiene una extensión llamada _Subject Alternative Name_ el cual dicta que además del `Common Name`, hay otros nombres de dominio los cuales tambien **son validos**. Donde encontramos esos otros subdominios en el certificado?
 
-![Nombres Alternativos del Certificado](/content/images/2017/11/cap3.png)
+![Nombres Alternativos del Certificado](/images/screenshots/cap3.png)
 
 En la pestaña de *Details* podemos encontrar en la casilla *Certificate Fields* en el cual encontramos la extension llamada *Certificate Subject Alt Name* donde encontramos los nombres alternativos (pero pertenecientes al dominio principal) a los que el certificado es válido, por esta razon el certificado se presenta legítimo aun cuando el **CN (Common Name)** es diferente.
 
