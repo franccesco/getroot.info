@@ -1,0 +1,68 @@
+---
+layout: post
+title: 'Tip: Conectarse a una red por la terminal con NMCLI'
+date: '2017-07-28 23:46:48'
+tags:
+- tip
+---
+
+Nmcli (**N**etwork **M**anager **C**ommand **L**ine **I**nterface) es una interfaz de terminal que tenemos a disposición para conectarnos o desconectarnos sin necesidad de una interfaz gráfica, así como para hacer scripts o conectarnos a un VPN por medio de SSH (el cual es mi caso)
+
+Si ejecutamos solamente `nmcli` podemos ver las propiedades generales de la red:
+
+```
+eth0: connected to Wired connection 1
+        "Intel 82545EM Gigabit Ethernet Controller (Copper) (PRO/1000 MT Single Port Adapter)"
+        ethernet (e1000), 00:0C:29:DE:33:30, hw, mtu 1500
+        ip4 default
+        inet4 192.168.1.221/24
+        inet6 fe80::20c:29ff:fede:3330/64
+
+lo: unmanaged
+        loopback (unknown), 00:00:00:00:00:00, sw, mtu 65536
+
+DNS configuration:
+        servers: 192.168.1.1 x.x.x.x x.x.x.x
+        domains: local
+        interface: eth0
+```
+
+Para ver las redes disponibles ejecutamos:
+`nmcli connection`
+```
+NAME                     UUID                                  TYPE            DEVICE
+Wired connection 1       4f363b54-4beb-4e5b-8579-e1e81243fda1  802-3-ethernet  eth0
+PIA - AU Melbourne       35e4baf3-f26b-4d6a-86d8-d1629fe38a33  vpn             --
+PIA - AU Sydney          8c4bab76-1661-4c65-bed5-aad877f4b022  vpn             --
+PIA - Brazil             4f22fecb-424f-47e0-b9e6-32502058ebf6  vpn             --
+PIA - CA Montreal        dd9ff675-0fbf-49fe-94fb-5ea8a5770fe1  vpn             --
+PIA - CA Toronto         f67812d9-806b-47fa-be0f-f18b3d3543e7  vpn             --
+PIA - Denmark            070ab716-dfed-42cb-aac9-d8a2920aadd7  vpn             --
+PIA - Finland            2c244311-43ed-44f4-9438-cf27fb8760f6  vpn             --
+PIA - France             773a1afa-56b1-4c6b-a557-b964147fdd81  vpn             --
+PIA - Hong Kong          a467a883-f151-45c4-ba36-e4564576e892  vpn             --
+PIA - India              5096911c-a1d8-404b-804a-d0c64bd081c1  vpn             --
+PIA - Ireland            fe9f2ac4-037e-40a9-ac6a-f93cdb73df5a  vpn             --
+PIA - Israel             05f24de6-35b3-4de9-95d1-da5380c3cb45  vpn             --
+PIA - Italy              83b9e135-c039-46cc-88d0-f5528b714a7c  vpn             --
+-- SNIP --
+```
+
+De esta manera identificamos la red a la cual queremos conectarnos con el nombre, el comando `--ask` es opcional, pero deberíamos ponerlo si la red necesita autenticación, a como lo es un VPN:
+`nmcli connection up nombre_conexion [--ask]`
+
+En mi caso:
+```
+root@kali:~# nmcli connection up PIA\ -\ Mexico --ask
+
+A password is required to connect to 'PIA - Mexico'.
+Password (vpn.secrets.password):
+Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/3)
+```
+
+A veces usar nombres de conexión es complicado, así que podemos usar un UUID en vez de un nombre:
+
+`nmcli connection up uuid <numero_uuid>`
+
+--------------------
+**Nota:** Si queremos usar un nombre de conexión y tiene espacios en el nombre debemos poner un escape de carácter con `\`, de esta manera si queremos poner `mi red hogar` debemos poner `mi\ red\ hogar`.

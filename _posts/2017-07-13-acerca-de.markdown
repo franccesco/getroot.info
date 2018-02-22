@@ -1,0 +1,17 @@
+---
+layout: post
+title: Acerca del .get(root)
+date: '2017-07-13 15:36:00'
+---
+
+Get(root) es un pequeño blog donde escribo curiosidades de del mundo de la seguridad informática que mas me llaman la atención.
+
+Aquí encontraras proyectos, herramientas, métodos, técnicas y noticias que me parecen interesantes compartir, con demostraciones y videos sobre los mismos.
+
+Este blog salio de mi parte porque (además de compartir lo que ya sé) quiero aprender mas y tratarlo como un espacio personal donde puedo compartir tanto mis ideas como lo que he encontrado en a través de los años.
+
+Espero que entiendas que no voy a ser un editor perfecto, ni tampoco dedicar tanto tiempo a la estética del sitio. Es mas que todo un esfuerzo por el contenido que por lo bonito que pueda mirarse esto.
+
+Espero que puedas encontrar un blog con contenido de calidad y en el cual puedas comentar, preguntar y aportar.
+
+*Happy Hacking.*

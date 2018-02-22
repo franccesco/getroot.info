@@ -1,0 +1,18 @@
+---
+layout: post
+title: 'Búsqueda:'
+date: '2017-07-14 16:35:46'
+---
+
+<script>
+  (function() {
+    var cx = '001959368865762305078:wta4-i8u2vu';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
