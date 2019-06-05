@@ -22,7 +22,7 @@ Hace poco estaba navegando internet, a mi manera y me encontre con varios servid
 
 ## Footprinting
 
-Abrimos Metasploit y busco el modulo mssql_ping para ver en que ver en que puertos esta MSSQL corriendo, este modulo hace una peticion al servicio UDP en el puerto 1433 para localizar en que otros puertos (TCP) esta el servicio MSSQL.
+Abrimos Metasploit y busco el modulo mssql_ping para ver en que puertos esta MSSQL corriendo, este modulo hace una peticion al servicio UDP en el puerto 1433 para localizar en que otros puertos (TCP) esta el servicio MSSQL.
 
 `use auxiliary/scanner/mssql/mssql_ping`
 ![search mssql type:auxiliary](/images/screenshots/Screenshot-from-2018-01-11-23-21-48-1.png)
